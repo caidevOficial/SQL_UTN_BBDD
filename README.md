@@ -37,8 +37,9 @@
 
 ---
 
-<center><h1>Databases 👨‍💻</h1></center></br></br>
-
+<div align="center">
+  <h1>Databases 👨‍💻</h1>
+</div></br></br>
 
 <div align="center">
     <table border=2>
