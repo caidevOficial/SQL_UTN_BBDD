@@ -1,0 +1,1 @@
+DELETE FROM `ejemplos`.`alumnos` WHERE 1 = 1;

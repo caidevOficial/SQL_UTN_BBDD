@@ -1,0 +1,1 @@
+DELETE FROM `ejemplos`.`estado_academico` WHERE 1 = 1;
