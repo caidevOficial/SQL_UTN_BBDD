@@ -48,10 +48,10 @@
             <tr>
                 <td bgcolor="black" color="white" align="center">Clase_00</td>
                 <td bgcolor="black" color="white" align="center">
-                    <a href='./01_Reglas_de_Codd.md'>Codd Rules</a></br>
-                    <a href='./02_Entidades_y_Atributos.md'>Entities & Attributes</a></br>
-                    <a href='./04_Relaciones.md'>Relationships</a></br>
-                    <a href='./07_Tipos_de_Datos.md'>Data Types</a></br>
+                    <a href='./Clase_00/01_Reglas_de_Codd.md'>Codd Rules</a></br>
+                    <a href='./Clase_00/02_Entidades_y_Atributos.md'>Entities & Attributes</a></br>
+                    <a href='./Clase_00/04_Relaciones.md'>Relationships</a></br>
+                    <a href='./Clase_00/07_Tipos_de_Datos.md'>Data Types</a></br>
                 </td>
             <tr>
                 <td bgcolor="black" color="white" align="center">Clase 02</td>
