@@ -7,8 +7,8 @@
             <img alt="Logo MySQL" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg?raw=true" height="200px" />
         </td>
     </tr>
-    <tr align='center' colspan='2'>
-      <td>
+    <tr>
+      <td align="center" colspan=2>
           <img alt="Personal Logo" src="https://github.com/caidevOficial/Logos/raw/master/Personales/Personal_Logo_Gif.gif?raw=true" height="150px" />
       </td>
     </tr>
@@ -44,6 +44,14 @@
     <table border=2>
         <theader bgcolor="lime"><h1>Index</h1><theader>
         <tbody>
+            <tr>
+                <td bgcolor="black" color="white" align="center">Clase_00</td>
+                <td bgcolor="black" color="white" align="center">
+                    <a href='./01_Reglas_de_Codd.md'>Codd Rules</a></br>
+                    <a href='./02_Entidades_y_Atributos.md'>Entities & Attributes</a></br>
+                    <a href='./04_Relaciones.md'>Relationships</a></br>
+                    <a href='./07_Tipos_de_Datos.md'>Data Types</a></br>
+                </td>
             <tr>
                 <td bgcolor="black" color="white" align="center">Clase 02</td>
                 <td bgcolor="black" color="white" align="center">
