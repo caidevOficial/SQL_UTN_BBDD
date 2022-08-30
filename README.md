@@ -38,12 +38,8 @@
 ---
 
 <div align="center">
-  <h1>Databases 👨‍💻</h1>
-</div></br></br>
-
-<div align="center">
     <table border=2>
-        <theader bgcolor="lime"><h1>Index</h1><theader>
+        <theader bgcolor="lime"><h1>Databases 👨‍💻 Index</h1><theader>
         <tbody>
             <tr>
                 <td bgcolor="black" color="white" align="center">Clase_00</td>
