@@ -1,6 +1,7 @@
-### 00. SQL – Tipos de lenguaje
+### 00. **SQL** – *Tipos de lenguaje*
 
 SQL (structured query language) tiene los siguientes lenguajes:
+
 I. **DDL** o *Data Definition Language*:
 Que nos ayuda a crear la estructura de una base de datos. Existen 3 grandes
 comandos:

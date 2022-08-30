@@ -48,7 +48,7 @@
             <tr>
                 <td bgcolor="black" color="white" align="center">Clase_00</td>
                 <td bgcolor="black" color="white" align="center">
-                    <a href='./Clase_00/00_SQL_info.md'>SQL Basics</a></br>
+                    <a href='./Clase_00/00_SQL_Info.md'>SQL Basics</a></br>
                     <a href='./Clase_00/01_Reglas_de_Codd.md'>Codd Rules</a></br>
                     <a href='./Clase_00/02_Entidades_y_Atributos.md'>Entities & Attributes</a></br>
                     <a href='./Clase_00/04_Relaciones.md'>Relationships</a></br>
