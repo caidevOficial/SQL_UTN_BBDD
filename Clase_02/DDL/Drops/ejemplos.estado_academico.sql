@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `ejemplos`.`estado_academico`;
