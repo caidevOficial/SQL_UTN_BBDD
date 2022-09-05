@@ -1,0 +1,1 @@
+DROP INDEX IF EXISTS I_LEGAJO ON `ejemplos`.`alumnos`;
