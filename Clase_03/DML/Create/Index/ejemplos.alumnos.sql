@@ -1,0 +1,1 @@
+CREATE INDEX IF NOT EXISTS I_LEGAJO ON `ejemplos`.`alumnos`(`legajo`);

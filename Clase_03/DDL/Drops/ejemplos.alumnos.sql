@@ -1,0 +1,1 @@
+DROP VIEW `ejemplos`.`alumnos_vw`;

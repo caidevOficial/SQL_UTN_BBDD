@@ -58,6 +58,14 @@
                     <a href='./Clase_02/README_03.md'>DDL - Alter</a></br>
                 </td>
             </tr>
+            <tr>
+                <td bgcolor="black" color="white" align="center">Clase 03</td>
+                <td bgcolor="black" color="white" align="center">
+                    <a href='./Clase_03/README_01.md'>DDL - Index</a></br>
+                    <a href='./Clase_03/README_02.md'>DDL - Views</a></br>
+                    <a href='./Clase_03/Practice/README.md'>Practice</a></br>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>

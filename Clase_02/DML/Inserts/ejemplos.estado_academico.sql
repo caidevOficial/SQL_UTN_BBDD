@@ -7,4 +7,6 @@ VALUES
     ,(6102, "Programacion II", 7)
     ,(6115, "Matematica", 4)
     ,(6123, "Base de Datos", 9)
-    ,(6123, "Roca, Alicia Alsina", 9);
+    ,(110093, "Estadistica", 10)
+    ,(110093, "Matematica", 10)
+    ,(110093, "SPD", 10);
