@@ -1,1 +1,0 @@
-ALTER TABLE `ejemplos`.`productos` ADD `importador` VARCHAR (25);

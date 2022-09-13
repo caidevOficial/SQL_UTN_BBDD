@@ -1,8 +1,6 @@
-# Excercises - Part 01
+## Ejercicios Prácticos
 
-* Create a view made up of supplier numbers and order numbers.
-products located in different locations. [Resolution](./DDL/ejemplos.proveedores_1_vw.sql)
-* Add the `importador` column to the `productos` table. [Resolution](./DML/Update/ejemplos.productos.sql)
-* Create a view made up of the records of `suppliers` who live in Wilde. [Resolution](./DDL/ejemplos.proveedores_2_vw.sql)
-* Create the `DEPARTMENTS` and `EMPLOYEES` tables with their relationships, and the
-`PATIENTS` and `MEDICINES` tables with their relationships. [Resolution]()
+* Ejercicio DDL 1 [Resolution](./Parte_01_ejercicios.sql)
+* Ejercicio DML 1 [Resolution](./Parte_02_ejercicios.sql)
+* Ejercicio DML 2 [Resolution](./Parte_03_ejercicios.sql)
+* Ejercicio DML 3 [Resolution](./Parte_04_ejercicios.sql)
