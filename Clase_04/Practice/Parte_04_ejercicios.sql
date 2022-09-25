@@ -426,6 +426,7 @@ calcular_faltante(prod.`cantidad_stock`, prod.`punto_reposicion`) AS Reponer_Min
 FROM `ejercicio_3`.`productos` AS prod
 INNER JOIN `ejercicio_3`.`fabricantes` AS fab
 ON prod.`cod_fabricante` = fab.`cod_fabricante`
+WHERE prod.`cantidad_stock` < prod.`punto_reposicion`
 ORDER BY
 Razon_Social ASC,
 Descripcion ASC;
