@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Documentos` (
 INSERT INTO `ejercicio_3`.`Documentos` (`descripcion`)
 VALUES
     ('Contrato') ,('Alquiler') ,('Documentacion personal')
-     ,('Ventas del dia') ,('Compras')
+     ,('Ventas del dia') ,('Compras');
 
 
 CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Oficinas` (
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Oficinas` (
 
 INSERT INTO `ejercicio_3`.`Oficinas`(`codigo_director`, `descripcion`)
 VALUES
-    (3, 'IT'), (1, 'Ventas'), (4, 'Ingenieria'), (2, 'Finanzas')
+    (3, 'IT'), (1, 'Ventas'), (4, 'Ingenieria'), (2, 'Finanzas');
 
 CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Empleados` (
     `cod_empleado` INTEGER NOT NULL AUTO_INCREMENT
@@ -83,7 +83,7 @@ VALUES
     ('Pepe', 'Argento', '1960-02-25', '10110150', 2, 4, 4)
     ,('Paola', 'Argento', '1990-02-25', '20110150', 4, 3, 5)
     ,('Moni', 'Argento', '1970-02-25', '10999150', 1, 2, 4)
-    ,('Coqui', 'Argento', '1990-02-25', '20110151', 4, 3, 3)
+    ,('Coqui', 'Argento', '1990-02-25', '20110151', 4, 3, 3);
 
 CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Datos_contratos` (
     `cod_empleado` INTEGER NOT NULL
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Datos_contratos` (
 INSERT INTO `ejercicio_3`.`Datos_contratos`
 (`cod_empleado`, `cuota`, `ventas`)
 VALUES
-    (2, 25000, 4), (1, 50000, 8), (4, 37500, 6), (2, 75000, 12)
+    (2, 25000, 4), (1, 50000, 8), (4, 37500, 6), (2, 75000, 12);
 
 CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Fabricantes` (
     `cod_fabricante` INTEGER NOT NULL AUTO_INCREMENT
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Fabricantes` (
 
 INSERT INTO `ejercicio_3`.`Fabricantes`(`razon_social`)
 VALUES
-    ('Adidas'), ('Nike'), ('Emporio Armani'), ('Givenchy'), ('Paco Rabanne')
+    ('Adidas'), ('Nike'), ('Emporio Armani'), ('Givenchy'), ('Paco Rabanne');
 
 CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Listas` (
     `cod_lista` INTEGER NOT NULL AUTO_INCREMENT
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Listas` (
 
 INSERT INTO `ejercicio_3`.`Listas`(`descripcion`, `ganancia`)
 VALUES
-    ('Black Friday', 30), ('Cyber Monday', 25), ('Default', 15)
+    ('Black Friday', 30), ('Cyber Monday', 25), ('Default', 15);
 
 -- Productos (cod_producto, descripcion, precio, cantidad_stock, punto_reposicion, cod_fabricante)
 CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Productos` (
@@ -142,7 +142,7 @@ VALUES
     ,('Eau du perfum',25000 ,75, 5)
     ,('Snikers',15000 ,100, 2)
     ,('Mochila',10000 ,50, 2)
-    ,('Gorra',5000 ,500, 1)
+    ,('Gorra',5000 ,500, 1);
 
 -- Precios (cod_producto, cod_lista, precio)
 CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Precios` (
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Precios` (
 
 INSERT INTO `ejercicio_3`.`Precios`(`cod_lista`, `precio`)
 VALUES
-    (3, 30), (1, 15), (2, 25)
+    (3, 30), (1, 15), (2, 25);
 
 -- Clientes (cod_cliente, cod_lista, razon_social)
 CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Clientes` (
@@ -175,7 +175,7 @@ VALUES
     (2, 'Zapateria El Sueco')
     ,(1, 'Perfumeria El Bao')
     ,(3, 'Perfumeria Eau du qlo')
-    ,(3, 'Tienda de deportes Michetti')
+    ,(3, 'Tienda de deportes Michetti');
 
 -- Pedidos (cod_pedido, fecha_pedido, cod_empleado, cod_cliente)
 CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Pedidos` (
@@ -193,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Pedidos` (
 INSERT INTO `ejercicio_3`.`Pedidos`(`cod_empleado`, `cod_cliente`)
 VALUES
     (1, 1), (1, 2), (2, 3), (2, 2), (2, 3)
-    ,(3, 3), (3, 4), (3, 3), (4, 4), (2, 4)
+    ,(3, 3), (3, 4), (3, 3), (4, 4), (2, 4);
 
 -- Detalle_pedidos (cod_pedido, numero_linea, cod_producto, cantidad)
 CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Detalle_pedidos` (
@@ -211,7 +211,7 @@ VALUES
     ('2022', 1, 100) ,('2022', 2, 100) ,('2022', 2, 75) ,('2022', 3, 100) 
     ,('2022', 4, 100) ,('2022', 5, 100) ,('2022', 3, 30) ,('2022', 7, 100)
     ,('2022', 4, 45) ,('2022', 6, 100) ,('2022', 6, 20) 
-    ,('2022', 7, 10) ,('2022', 1, 90)
+    ,('2022', 7, 10) ,('2022', 1, 90);
 
 -- Consultas simples (una sola tabla)
 -- 1. Obtener una lista con los nombres de las distintas oficinas de la empresa.
