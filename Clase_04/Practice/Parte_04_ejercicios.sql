@@ -208,19 +208,10 @@ CREATE TABLE IF NOT EXISTS `ejercicio_3`.`Detalle_pedidos` (
 
 INSERT INTO `ejercicio_3`.`Detalle_pedidos`(`numero_linea`, `cod_producto`, `cantidad`)
 VALUES
-    ('2022', 1, 100)
-    ,('2022', 2, 100)
-    ,('2022', 2, 75)
-    ,('2022', 3, 100)
-    ,('2022', 4, 100)
-    ,('2022', 5, 100)
-    ,('2022', 3, 30)
-    ,('2022', 7, 100)
-    ,('2022', 4, 45)
-    ,('2022', 6, 100)
-    ,('2022', 6, 20)
-    ,('2022', 7, 10)
-    ,('2022', 1, 90)
+    ('2022', 1, 100) ,('2022', 2, 100) ,('2022', 2, 75) ,('2022', 3, 100) 
+    ,('2022', 4, 100) ,('2022', 5, 100) ,('2022', 3, 30) ,('2022', 7, 100)
+    ,('2022', 4, 45) ,('2022', 6, 100) ,('2022', 6, 20) 
+    ,('2022', 7, 10) ,('2022', 1, 90)
 
 -- Consultas simples (una sola tabla)
 -- 1. Obtener una lista con los nombres de las distintas oficinas de la empresa.
@@ -291,18 +282,165 @@ LIMIT 3;
 /* Consultas multitablas */
 -- 1. De cada producto listar descripcion, razón social del fabricante y stock ordenado por razón 
 -- social y descripcion.
+SELECT 
+prod.`descripcion` AS Descripcion,
+fab.`razon_social` AS Razon_Social,
+prod.`cantidad_stock` AS Stock
+FROM `ejercicio_3`.`productos` AS prod
+INNER JOIN `ejercicio_3`.`fabricantes` AS fab
+ON fab.`cod_fabricante` = prod.`cod_fabricante`
+ORDER BY 
+Razon_Social ASC,
+Descripcion ASC;
+
+
 -- 2. De cada pedido listar código de pedido, fecha de pedido, apellido del empleado y razón 
 -- social del cliente.
+SELECT
+ped.`cod_pedido` AS Codigo,
+ped.`fecha_pedido` AS Fecha,
+emp.`apellido` AS Apellido_Empleado,
+cli.`razon_social` AS R_Social_Cliente
+FROM `ejercicio_3`.`pedidos` AS ped
+INNER JOIN `ejercicio_3`.`empleados` AS emp
+ON ped.`cod_empleado` = emp.`cod_empleado`
+INNER JOIN `ejercicio_3`.`clientes` AS cli
+ON ped.`cod_cliente` = cli.`cod_cliente`;
+
+
 -- 3. Listar por cada empleado apellido, cuota asignada, oficina a la que pertenece ordenado en 
 -- forma descendente por cuota.
+SELECT
+emp.`apellido` AS Apellido,
+d_cont.`cuota` AS Cuota_Asignada,
+ofi.`descripcion` AS Oficina
+FROM `ejercicio_3`.`empleados` AS emp
+INNER JOIN `ejercicio_3`.`oficinas` AS ofi
+ON emp.`cod_oficina` = ofi.`cod_oficina`
+INNER JOIN `ejercicio_3`.`datos_contratos` AS d_cont
+ON emp.`cod_empleado` = d_cont.`cod_empleado`
+ORDER BY Cuota_Asignada ASC;
+
+
 -- 4. Listar sin repetir la razón social de todos aquellos clientes que hicieron pedidos en Abril.
+SELECT DISTINCT
+cli.`razon_social`
+FROM `ejercicio_3`.`clientes` AS cli
+INNER JOIN `ejercicio_3`.`pedidos` as ped
+ON cli.`cod_cliente` = ped.`cod_cliente`
+WHERE ped.`fecha_pedido` LIKE '____-09-%';
+
+
 -- 5. Listar sin repetir los productos que fueron pedidos en Marzo.
+SELECT DISTINCT
+prod.`cod_producto` AS Codigo,
+prod.`descripcion` AS Descripcion,
+prod.`precio` AS Precio,
+prod.`cantidad_stock` AS Stock,
+prod.`punto_reposicion` AS Reposicion,
+prod.`cod_fabricante` AS Fabricante
+FROM `ejercicio_3`.`productos` AS prod
+INNER JOIN `ejercicio_3`.`detalle_pedidos` as d_ped
+ON prod.`cod_producto` = d_ped.`cod_producto`
+INNER JOIN `ejercicio_3`.`pedidos` as ped
+ON d_ped.`cod_pedido` = ped.`cod_pedido`
+WHERE ped.`fecha_pedido` LIKE '____-07-%';
+
+
 -- 6. Listar aquellos empleados que están contratados por más de 10 años ordenado por 
 -- cantidad de años en forma descendente.
+SELECT
+emp.`cod_empleado` AS Codigo,
+CONCAT(emp.`nombre`, ' ', emp.`apellido`) AS Nombre_Completo,
+DATE_FORMAT(emp.`fecha_nacimiento`, "%Y-%m-%d") AS Fecha_Nacimiento,
+emp.`num_doc` AS DNI,
+emp.`cod_jefe` AS Jefe,
+ofi.`descripcion` AS Oficina,
+doc.`descripcion` AS Documento,
+TIMESTAMPDIFF(YEAR, d_cont.`fecha_contrato`, CURRENT_DATE()) AS Cantidad_anhos
+FROM `ejercicio_3`.`empleados` AS emp
+INNER JOIN `ejercicio_3`.`datos_contratos` AS d_cont
+ON emp.`cod_empleado` = d_cont.`cod_empleado`
+INNER JOIN `ejercicio_3`.`documentos` AS doc 
+ON emp.`cod_documento` = doc.`cod_documento`
+INNER JOIN `ejercicio_3`.`oficinas` AS ofi 
+ON emp.`cod_oficina` = ofi.`cod_oficina`
+WHERE TIMESTAMPDIFF(YEAR, d_cont.`fecha_contrato`, CURRENT_DATE()) > 9;
+
 -- 7. Obtener una lista de los clientes mayoristas ordenada por razón social.
+SELECT
+cli.`cod_cliente` AS Codigo,
+listas.`descripcion` AS Lista,
+cli.`razon_social` AS Razon_Social
+FROM `ejercicio_3`.`clientes` AS cli
+INNER JOIN `ejercicio_3`.`listas` AS listas
+ON cli.`cod_lista` = listas.`cod_lista`
+WHERE cli.`cod_cliente` IN (
+    SELECT DISTINCT
+    ped.`cod_cliente`
+    FROM `ejercicio_3`.`pedidos` AS ped
+);
+
+
 -- 8. Obtener una lista sin repetir que indique qué productos compró cada cliente, ordenada 
 -- por razón social y descripcion.
+SELECT
+prod.`descripcion` AS Descripcion,
+cli.`razon_social` AS Razon_Social
+FROM `ejercicio_3`.`productos` AS prod
+INNER JOIN `ejercicio_3`.`detalle_pedidos` AS d_ped
+ON prod.`cod_producto` = d_ped.`cod_producto`
+INNER JOIN `ejercicio_3`.`pedidos` AS ped
+ON d_ped.`cod_pedido` = ped.`cod_pedido`
+INNER JOIN `ejercicio_3`.`clientes` AS cli
+ON cli.`cod_cliente` = ped.`cod_cliente`
+GROUP BY
+Descripcion,
+Razon_Social
+ORDER BY
+Razon_Social ASC,
+Descripcion ASC;
+
+
 -- 9. Obtener una lista con la descripcion de aquellos productos cuyo stock está por debajo del 
 -- punto de reposición indicando cantidad a comprar y razón social del fabricante ordenada 
 -- por razón social y descripcion.
+DELIMITER //
+
+CREATE FUNCTION IF NOT EXISTS calcular_faltante(stock INTEGER, reposicion INTEGER)
+RETURNS INTEGER
+    BEGIN
+        DECLARE res INTEGER;
+        SET res = IF(stock < reposicion, reposicion - stock, 0);
+        RETURN res;
+    END//
+
+DELIMITER ;
+
+SELECT
+prod.`descripcion` AS Descripcion,
+prod.`cantidad_stock` AS Stock,
+prod.`punto_reposicion` AS Reponer_En,
+fab.`razon_social` AS Razon_Social,
+calcular_faltante(prod.`cantidad_stock`, prod.`punto_reposicion`) AS Reponer_Minimo
+FROM `ejercicio_3`.`productos` AS prod
+INNER JOIN `ejercicio_3`.`fabricantes` AS fab
+ON prod.`cod_fabricante` = fab.`cod_fabricante`
+ORDER BY
+Razon_Social ASC,
+Descripcion ASC;
+
+
 -- 10. Listar aquellos empleados cuya cuota es menor a 50000 o mayor a 100000.
+SELECT
+emp.`cod_empleado` AS Codigo_Empleado,
+CONCAT(emp.`nombre`, ' ', emp.`apellido`) AS Nombre_Completo,
+DATE_FORMAT(emp.`fecha_nacimiento`, "%Y-%m-%d") AS Fecha_Nacimiento,
+emp.`num_doc` AS DNI,
+emp.`cod_jefe` AS Jefe,
+emp.`cod_oficina` AS Codigo_Oficina,
+emp.`cod_documento` AS Codigo_Documento
+FROM `ejercicio_3`.`empleados` AS emp
+INNER JOIN `ejercicio_3`.`datos_contratos` AS d_cont
+ON emp.`cod_empleado` = d_cont.`cod_empleado`
+WHERE d_cont.`cuota` > 100000 OR d_cont.`cuota` < 50000;
